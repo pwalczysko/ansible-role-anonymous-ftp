@@ -51,7 +51,7 @@
     state: present
 
 - name: Get Docker published ports list
-  set_fact:
+  ansible.builtin.set_fact:
     anonymous_ftp_published_ports: >
       {{ anonymous_ftp_published_ports |
          default([anonymous_ftp_port | string + ':21']) +

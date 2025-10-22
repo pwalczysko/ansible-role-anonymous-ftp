@@ -1,2 +1,6 @@
 ---
-- src: ome.docker
+
+# - src: ome.docker
+- name: docker
+  src: https://github.com/khaledk2/ansible-role-docker
+  version: update_ansible_ver

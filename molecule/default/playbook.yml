@@ -2,7 +2,7 @@
 - name: Converge
   hosts: all
   roles:
-    - role: ome.docker
+    - role: docker
 
     - role: ome.anonymous_ftp
       anonymous_ftp_incoming_data_dir: /srv/ftp-incoming
@@ -14,13 +14,13 @@
   tasks:
     - name: Install ftp client
       become: true
-      yum:
+      ansible.builtin.yum:
         name: ftp
         state: present
 
     - name: Copy test upload script
       become: true
-      copy:
+      ansible.builtin.copy:
         src: upload_test.sh
         dest: /upload_test.sh
         mode: 0755
